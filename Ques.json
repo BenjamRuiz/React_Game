@@ -1,0 +1,11 @@
+{
+    "question1":{
+        "questionText" : "What is the capital of France?",
+        "answerOptions": {
+            "answerText1":{ "text":"New York", "isCorrect": false },
+            "answerText2":{ "text":"London", "isCorrect": false },
+            "answerText3":{ "text":"Paris", "isCorrect": true },
+            "answerText4":{ "text":"Dublin", "isCorrect": false }
+        }
+    }
+}
