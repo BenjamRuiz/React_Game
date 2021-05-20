@@ -1,11 +1,22 @@
 {
-    "question1":{
-        "questionText" : "What is the capital of France?",
-        "answerOptions": {
-            "answerText1":{ "text":"New York", "isCorrect": false },
-            "answerText2":{ "text":"London", "isCorrect": false },
-            "answerText3":{ "text":"Paris", "isCorrect": true },
-            "answerText4":{ "text":"Dublin", "isCorrect": false }
+    "qID": 1,
+    "question": "What is the capital of France?",
+    "answers": {
+        "answer1": {
+            "text": "New York",
+            "isCorrect": false
+        },
+        "answer2": {
+            "text": "London",
+            "isCorrect": false
+        },
+        "answer3": {
+            "text": "Paris",
+            "isCorrect": true
+        },
+        "answer": {
+            "text": "Dublin",
+            "isCorrect": false
         }
     }
 }
