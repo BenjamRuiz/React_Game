@@ -1,22 +1,44 @@
 {
-    "qID": 1,
-    "question": "What is the capital of France?",
-    "answers": {
-        "answer1": {
-            "text": "New York",
-            "isCorrect": false
-        },
-        "answer2": {
-            "text": "London",
-            "isCorrect": false
-        },
-        "answer3": {
-            "text": "Paris",
-            "isCorrect": true
-        },
-        "answer": {
-            "text": "Dublin",
-            "isCorrect": false
+    "q1":{
+        "question": "What is the capital of France?",
+        "answers": {
+            "answer1": {
+                "text": "New York",
+                "isCorrect": false
+            },
+            "answer2": {
+                "text": "London",
+                "isCorrect": false
+            },
+            "answer3": {
+                "text": "Paris",
+                "isCorrect": true
+            },
+            "answer4": {
+                "text": "Dublin",
+                "isCorrect": false
+            }
+        }
+    },
+    "q2":{
+        "question": "Hg is the chemical symbol of which element?",
+        "answers": {
+            "answer1": {
+                "text": "Helium",
+                "isCorrect": false
+            },
+            "answer2": {
+                "text": "Magnesium",
+                "isCorrect": false
+            },
+            "answer3": {
+                "text": "Mercury",
+                "isCorrect": true
+            },
+            "answer4": {
+                "text": "Gold",
+                "isCorrect": false
+            }
         }
     }
 }

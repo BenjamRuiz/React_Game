@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 const { ObjectID } = require('bson');
+const { func } = require('prop-types');
 
 var app =express();
 app.use(bodyParser.json());
@@ -9,32 +10,37 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var htmladdress = "../COVIDRally.html";
 
-var mongoCredential = "mongodb+srv://arqui:qwerasdf@clustertest.o43i9.mongodb.net/GameDB"; //Hay que cambiarlo
-mongoose.Promise = global.Promise;
+var mongoCredential = "mongodb+srv://arqui:qwerasdf@clustertest.o43i9.mongodb.net/GameDB"; 
 mongoose.connect(mongoCredential,{useUnifiedTopology : true, useNewUrlParser : true}); 
 var questionSchema = new mongoose.Schema({
-    ques: String
-    // question: String,
-    // answers: {
-    //     a: String,
-    //     b: String,
-    //     c: String
-    // }
+    question: String
 },{collection: 'Questions'});
 
 var clientAnswers = new mongoose.Schema({
     userId: String, 
-    Score: String
-});
+    points: String
+},{collection: 'Users'});
 
 var Question = mongoose.model("Question", questionSchema);
 
 app.get('/',function(req,res){
-    Question.find(function(err,qustion){
-        res.send(qustion);
+    var query = Question.find(function(err,qustion){
+        res.send(qustion[1].question);
     });
     // res.send(query.select('answerOptions'));
     //res.sendFile(htmladdress);
+});
+
+var Points = mongoose.model("Points", clientAnswers);
+
+app.post('/userPoints', (req,res)=>{ 
+    userId = req.body.user;
+    var query = Points.find({'uID' : userId}, 'uID points', function(err, data){
+        res.send(data[0].points);
+    });
+    // var points = new Points(req.body);
+    // points.save()
+    // return res.send();
 });
 
 // var User = mongoose.model("User",clientAnswers);
