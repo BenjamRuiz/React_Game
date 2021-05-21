@@ -1,0 +1,175 @@
+.App {
+  text-align: center;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #2e61c7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.NavBar-Style{
+  background-color: #2e61c7;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.titulo{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+.tituloCarousel{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.carouselContainer {
+  position: relative;
+  text-align: center;
+}
+
+.carouselCentered {
+  position: absolute;
+  top: 85%;
+  left: 70%;
+  transform: translate(-25%, -15%);
+}
+
+.carouselCentered2 {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  transform: translate(-35%, -15%);
+}
+
+.carouselCentered3 {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  transform: translate(-45%, -15%);
+}
+
+.carouselButton{
+  border-radius: 10px;
+  background-color: #1417db;
+  height: 70px;
+  width: 200px;
+  text-align:center;
+  font-size: large;
+  font-style: oblique;
+
+}
+
+@media (max-width: 620px) {
+  .carousel {
+    width:auto;
+    height:300px;
+  }
+  .imgCarousel{
+    height:300px;
+  }
+
+  .tituloCarousel{
+    font-size: 15px;
+  }
+
+  .carouselCentered {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    transform: translate(-15%, -10%);
+  }
+
+  .carouselCentered2 {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    transform: translate(-30%, -25%);
+  }
+
+  .carouselButton{
+    border-radius: 10px;
+    background-color: #15586c;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .carouselCentered3 {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    transform: translate(-45%, -30%);
+  }
+}
+
+@media (min-width: 620px) {
+  @media (max-width: 1000px){
+    .carousel {
+      width:auto;
+      height:500px;
+    }
+    .imgCarousel{
+      height:500px;
+    }
+  
+    .tituloCarousel{
+      font-size: 25px;
+    }
+
+    .carouselCentered {
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      transform: translate(-15%, -15%);
+    }
+
+    .carouselCentered2 {
+      position: absolute;
+      top: 25%;
+      left: 20%;
+      transform: translate(-25%, -20%);
+    }
+
+    .carouselButton{
+      border-radius: 10px;
+      background-color: #15586c;
+      height: 35px;
+      font-size: 20px;
+    }
+
+    .carouselCentered3 {
+      position: absolute;
+      top: 35%;
+      left: 25%;
+      transform: translate(-35%, -25%);
+    }
+  }
+}
