@@ -25,7 +25,7 @@ var Question = mongoose.model("Question", questionSchema);
 
 app.get('/',function(req,res){
     var query = Question.find(function(err,qustion){
-        res.send(qustion[1].question);
+        res.send(qustion[0].question);
     });
     // res.send(query.select('answerOptions'));
     //res.sendFile(htmladdress);
