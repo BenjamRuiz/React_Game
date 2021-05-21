@@ -1,5 +1,26 @@
+#ignore for node API server
 /server/node_modules/*
 /server/package-lock.json
-/Proyecto/*
-Proyecto.rar
-.gitignore
+
+#react client dependencies
+/covidgame/node_modules
+/covidgame/.pnp
+/covidgame/.pnp.js
+
+#react testing
+/covidgame/coverage
+
+#react production
+/covidgame/build
+
+#react misc
+/covidgame/.DS_Store
+/covidgame/.env.local
+/covidgame/.env.development.local
+/covidgame/.env.test.local
+/covidgame/.env.production.local
+/covidgame/npm-debug.log*
+/covidgame/yarn-debug.log*
+/covidgame/yarn-error.log*
+/covidgame/
+/covidgame/.gitignore
