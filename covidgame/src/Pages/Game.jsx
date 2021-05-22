@@ -2,37 +2,45 @@ import React, { useState } from "react";
 import '../styles/quiz.css'
 import axios from 'axios';
 
- /*function getquestions () {
-	let dato={};
-	let q=axios.get('http://localhost:8800').then((response) => {
-		console.log("entre a la funcion getquestion", response);	
-		dato=response.data;
-		return response.data.question;
-	}).
-	catch(error =>{
-		console.log(error);
-		alert("Error sending questions")
-		return error;
-	});
-	return dato;
-}
-async function getanswers () {
-	let ans=axios.get('http://localhost:8800').then((response) => {
-		console.log("entre a la funcion dice Benji");	
-		return response.data.answers;
-	}).
-	catch(error =>{
-		console.log(error);
-		alert("Error sending answers")
-		return error;
-	});
-	return await ans;
-}*/
+class Game extends React.Component {
 
+	state = {
+		questions: [],
+		questionText: '',
+		answerOptions: null,
+		currentQuestion: 0,
+		showScore: false,
+		score: 0
+	}
 
-export default function App() {
+	componentDidMount() {
+        this.getquestions();
+    }
 
-	const questions = [
+	async getquestions () {
+		const res = await axios.get("http://localhost:8800").catch(error =>{
+			console.log(error);
+			alert("Error sending questions")
+			return error;
+		});;
+
+		this.setState({questions: res.data, questionText: res.data[0].question, answerOptions: res.data[0].answers});
+	}
+
+	/*async function getanswers () {
+		let ans=axios.get('http://localhost:8800').then((response) => {
+			console.log("entre a la funcion dice Benji");	
+			return response.data.answers;
+		}).
+		catch(error =>{
+			console.log(error);
+			alert("Error sending answers")
+			return error;
+		});
+		return await ans;
+	}*/
+
+	/*const questions = [
 		{
 			questionText: 'What is the capital of France?',
 			answerOptions: [
@@ -69,56 +77,68 @@ export default function App() {
 				{ answerText: 'Magnesium', isCorrect: false },
 			],
 		},
-	];
-	//let quiz = getquestions();
+	];*/
+
 	//console.log("mandar pregunta", quiz);
 	//let answer = getanswers();
 	//console.log("mandar respuestas", answer);
 
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
+	render() {
 
-	const handleAnswerOptionClick = (isCorrect) => {
-		if (isCorrect) {
-			setScore(score + 1);
-		}
+		const handleAnswerOptionClick = (isCorrect) => {
+            if (isCorrect) {
+                this.setState({score: this.state.score + 1})
+            }
+            const nextQuestion = this.state.currentQuestion + 1;
+            if (nextQuestion < this.state.questions.length) {
+                this.setState({currentQuestion: nextQuestion})
+                this.setState({questionText: this.state.questions[nextQuestion].question})
+                this.setState({answerOptions: this.state.questions[nextQuestion].answers})
+            } else {
+                this.setState({showScore: true})
+            }
+        };
 
-		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
-		} else {
-			setShowScore(true);
-		}
-	};
-	return (
-    <div>
-            <br />
-            <br />
-            <br />
-          <container class="d-flex justify-content-center"> 
-		<div className='app'>
-			{showScore ? (
-				<div className='score-section'>
-					You scored {score} out of {questions.length}
-				</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
+		return (
+		<div>
+				<br />
+				<br />
+				<br />
+			<container class="d-flex justify-content-center"> 
+			<div className='app'>
+				{this.state.showScore ? 
+					(<div className='score-section'>
+						You scored {this.state.score} out of {this.state.questions.length}
+					</div>
+					) : (
+					<>
+						<div className='question-section'>
+							<div className='question-count'>
+								<span>Question {this.state.currentQuestion + 1}</span>/{this.state.questions.length}
+							</div>
+							<div className='question-text'>{this.state.questionText}</div>
 						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-					</div>
-					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
-					</div>
-				</>
-			)}
+
+						{this.state.answerOptions != null ? 
+							(
+							<div className='answer-section'>
+								<button onClick={() => handleAnswerOptionClick(this.state.answerOptions.answer1.isCorrect)}>{this.state.answerOptions.answer1.text}</button>
+								<button onClick={() => handleAnswerOptionClick(this.state.answerOptions.answer2.isCorrect)}>{this.state.answerOptions.answer2.text}</button>
+								<button onClick={() => handleAnswerOptionClick(this.state.answerOptions.answer3.isCorrect)}>{this.state.answerOptions.answer3.text}</button>
+								<button onClick={() => handleAnswerOptionClick(this.state.answerOptions.answer4.isCorrect)}>{this.state.answerOptions.answer4.text}</button>
+							</div>)
+							:
+							(<div></div>)}
+						
+					</>
+				)}
+			</div>
+		</container>
 		</div>
-    </container>
-    </div>
-	);
+		);
+	}
 }
+export default Game;
+
+
+
