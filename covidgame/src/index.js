@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+//import App from './App';
+//import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react"; 
 import * as serviceWorker from "./serviceWorker"; 
 import CheckLogin from "./Components/CheckLogin"
@@ -10,8 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-     domain="a01021323.auth0.com"
-     clientId="dDYeTl9U1ZmOf5gkRaY6zDFj2iIN9Okj"
+     domain="covidgame.us.auth0.com"
+     clientId="VlaZ9zfoJv9GxQaqgT2qccP6noNdDYp4"
      redirectUri={window.location.origin}
     >
       <CheckLogin/>

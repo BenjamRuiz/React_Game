@@ -1,6 +1,6 @@
 import React from "react";
 import App from "../App";
-import { Auth0Provider } from "@auth0/auth0-react";
+//import { Auth0Provider } from "@auth0/auth0-react";
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Login = () => {

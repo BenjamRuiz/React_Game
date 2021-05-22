@@ -1,7 +1,7 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {useAuth0} from '@auth0/auth0-react';
+//import {useAuth0} from '@auth0/auth0-react';
 
 import ProfileButtons from "./ProfileButtons"
 

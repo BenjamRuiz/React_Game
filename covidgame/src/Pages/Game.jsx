@@ -1,10 +1,37 @@
 import React, { useState } from "react";
 import '../styles/quiz.css'
-import { Button } from "react-bootstrap";
+import axios from 'axios';
 
+ /*function getquestions () {
+	let dato={};
+	let q=axios.get('http://localhost:8800').then((response) => {
+		console.log("entre a la funcion getquestion", response);	
+		dato=response.data;
+		return response.data.question;
+	}).
+	catch(error =>{
+		console.log(error);
+		alert("Error sending questions")
+		return error;
+	});
+	return dato;
+}
+async function getanswers () {
+	let ans=axios.get('http://localhost:8800').then((response) => {
+		console.log("entre a la funcion dice Benji");	
+		return response.data.answers;
+	}).
+	catch(error =>{
+		console.log(error);
+		alert("Error sending answers")
+		return error;
+	});
+	return await ans;
+}*/
 
 
 export default function App() {
+
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -43,6 +70,10 @@ export default function App() {
 			],
 		},
 	];
+	//let quiz = getquestions();
+	//console.log("mandar pregunta", quiz);
+	//let answer = getanswers();
+	//console.log("mandar respuestas", answer);
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
