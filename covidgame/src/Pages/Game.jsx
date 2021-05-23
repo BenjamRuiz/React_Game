@@ -19,6 +19,8 @@ class Game extends React.Component {
 
 	componentDidMount() {
         this.getquestions();
+		this.postscore ()
+		this.postuser();
     }
 
 	async getquestions () {
@@ -43,7 +45,7 @@ class Game extends React.Component {
 	}
 
 	async postuser (){
-		var userpost= axios.post('http://localhost:8800/userPoints', {userId: 'lano'}).then((result) => {
+		const userpost= await axios.post('http://localhost:8800/userPoints', {userId: 'lano'}).then((result) => {
 			alert("User score saved");
 			window.location.href= "/Home";
 		}).catch(error => {
@@ -112,8 +114,9 @@ class Game extends React.Component {
 	//console.log("mandar respuestas", answer);
 	
 	render() {
-
+		
 		const handleRiskOptionClick = () =>{
+			
 			this.setState({risk: this.state.risk})
 		};
 
@@ -153,7 +156,7 @@ class Game extends React.Component {
 			<div className='app'>
 				{this.state.showScore ? 
 					(<div className='score-section'>
-						You scored {this.state.score} out of {this.state.questions.length}
+						You scored {this.state.score} out of {this.state.questions.length} questions
 					</div>
 					) : (
 					<>
@@ -184,6 +187,3 @@ class Game extends React.Component {
 	}
 }
 export default Game;
-
-
-

@@ -1,12 +1,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 const { ObjectID } = require('bson');
 const { func } = require('prop-types');
 
 var app =express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 var mongoCredential = "mongodb+srv://arqui:qwerasdf@clustertest.o43i9.mongodb.net/GameDB"; 
 mongoose.connect(mongoCredential,{useUnifiedTopology : true, useNewUrlParser : true}); 
@@ -25,18 +27,19 @@ var Question = mongoose.model("Question", questionSchema);
 //Get function for requesting an array of questions 
 app.get('/',function(req,res){
     var query = Question.find(function(err,qustion){
-        res.send(qustion);
+        res.send(qustion[0].qustion);
     });
 });
-
 //Post function for requesting the points of an user
+
 app.post('/userPoints', (req,res)=>{ 
+    var Points = mongoose.model("Points", clientAnswers);
     
-    let Points = mongoose.model("Points", clientAnswers);
-    userId = req.body.user;
+    userId = req.body.userId;
     
-    let query = Points.findOne({'uID' : userId}, 'uID points', function(err, data){
-        res.send(data[0].points);
+    var query = Points.findOne({'uID' : userId}, 'uID points', function(err, data){
+        res.send(data.points);
+        //console.log(data);
     });
 });
 

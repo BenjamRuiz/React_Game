@@ -1,7 +1,7 @@
 import React from "react";
 import CarouselHome from '../Components/CarouselHome';
 import '../App.css'
-
+import axios from 'axios';
 class Home extends React.Component {
 
   render() {
