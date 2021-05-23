@@ -1,44 +1,109 @@
-{
-    "q1":{
-        "question": "What is the capital of France?",
-        "answers": {
-            "answer1": {
-                "text": "New York",
-                "isCorrect": false
-            },
-            "answer2": {
-                "text": "London",
-                "isCorrect": false
-            },
-            "answer3": {
-                "text": "Paris",
-                "isCorrect": true
-            },
-            "answer4": {
-                "text": "Dublin",
-                "isCorrect": false
+{   
+    "questions":[
+        {
+            "question": "What is the capital of France?",
+            "answers": {
+                "answer1": {
+                    "text": "New York",
+                    "isCorrect": false
+                },
+                "answer2": {
+                    "text": "London",
+                    "isCorrect": false
+                },
+                "answer3": {
+                    "text": "Paris",
+                    "isCorrect": true
+                },
+                "answer4": {
+                    "text": "Dublin",
+                    "isCorrect": false
+                }
+            }
+        },
+        {
+            "question": "Hg is the chemical symbol of which element?",
+            "answers": {
+                "answer1": {
+                    "text": "Helium",
+                    "isCorrect": false
+                },
+                "answer2": {
+                    "text": "Magnesium",
+                    "isCorrect": false
+                },
+                "answer3": {
+                    "text": "Mercury",
+                    "isCorrect": true
+                },
+                "answer4": {
+                    "text": "Gold",
+                    "isCorrect": false
+                }
+            }
+        },
+        {
+            "question": "Who won the FIFA World Cup of 2014",
+            "answers": {
+                "answer1": {
+                    "text": "Argentina",
+                    "isCorrect": false
+                },
+                "answer2": {
+                    "text": "Germany",
+                    "isCorrect": true
+                },
+                "answer3": {
+                    "text": "Brazil",
+                    "isCorrect": false
+                },
+                "answer4": {
+                    "text": "Netherlands",
+                    "isCorrect": false
+                }
+            }
+        },
+        {
+            "question": "Which country produces the most coffee in the world?",
+            "answers": {
+                "answer1": {
+                    "text": "Brazil",
+                    "isCorrect": true
+                },
+                "answer2": {
+                    "text": "Colombia",
+                    "isCorrect": false
+                },
+                "answer3": {
+                    "text": "Nicaragua",
+                    "isCorrect": false
+                },
+                "answer4": {
+                    "text": "Costa Rica",
+                    "isCorrect": false
+                }
+            }
+        },
+        {
+            "question": "How much does the Chewbacca costume weigh?",
+            "answers": {
+                "answer1": {
+                    "text": "2 kg",
+                    "isCorrect": false
+                },
+                "answer2": {
+                    "text": "5 kg",
+                    "isCorrect": false
+                },
+                "answer3": {
+                    "text": "3.6 kg",
+                    "isCorrect": true
+                },
+                "answer4": {
+                    "text": "2.3 kg",
+                    "isCorrect": false
+                }
             }
         }
-    },
-    "q2":{
-        "question": "Hg is the chemical symbol of which element?",
-        "answers": {
-            "answer1": {
-                "text": "Helium",
-                "isCorrect": false
-            },
-            "answer2": {
-                "text": "Magnesium",
-                "isCorrect": false
-            },
-            "answer3": {
-                "text": "Mercury",
-                "isCorrect": true
-            },
-            "answer4": {
-                "text": "Gold",
-                "isCorrect": false
-            }
-        }
-    }
+    ]
 }
