@@ -4,6 +4,7 @@
 
 #react client dependencies
 /covidgame/node_modules
+/covidgame/package-lock.json
 /covidgame/.pnp
 /covidgame/.pnp.js
 
