@@ -19,7 +19,7 @@ class Game extends React.Component {
 
 	componentDidMount() {
         this.getquestions();
-		this.postscore ()
+		//this.postscore();
 		this.postuser();
     }
 
@@ -47,13 +47,13 @@ class Game extends React.Component {
 	async postuser (){
 		const userpost= await axios.post('http://localhost:8800/userPoints', {userId: 'lano'}).then((result) => {
 			alert("User score saved");
-			window.location.href= "/Home";
+			return result;
 		}).catch(error => {
 			console.log(error);
 			alert("ERROR User not saved");
 			return error;
 		});
-		this.setState({score: userpost.data[0].points});
+		this.setState({score: userpost.data});
 	}
 	
 
@@ -135,6 +135,7 @@ class Game extends React.Component {
 				
             } else {
                 this.setState({showScore: true})
+				this.postscore();
             }
         };
 

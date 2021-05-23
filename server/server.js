@@ -19,7 +19,7 @@ var questionSchema = new mongoose.Schema({
 
 var clientAnswers = new mongoose.Schema({
     userId: String, 
-    points: Number
+    points: String
 },{collection: 'Users'});
 
 var Question = mongoose.model("Question", questionSchema);
@@ -27,7 +27,7 @@ var Question = mongoose.model("Question", questionSchema);
 //Get function for requesting an array of questions 
 app.get('/',function(req,res){
     var query = Question.find(function(err,qustion){
-        res.send(qustion[0].qustion);
+        res.send(qustion);
     });
 });
 //Post function for requesting the points of an user
