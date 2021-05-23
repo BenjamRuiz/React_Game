@@ -10,7 +10,11 @@ class Game extends React.Component {
 		answerOptions: null,
 		currentQuestion: 0,
 		showScore: false,
-		score: 0
+		score: 0,
+		risk: 0,
+		risk0: 2,
+		risk1: 4,
+		risk2: 6
 	}
 
 	componentDidMount() {
@@ -26,6 +30,30 @@ class Game extends React.Component {
 
 		this.setState({questions: res.data, questionText: res.data[0].question, answerOptions: res.data[0].answers});
 	}
+
+	async postscore (){
+		axios.post('http://localhost:8800/updatePoints', {userId: 'lano', points: this.state.score}).then((result) => {
+			alert("Score Updated");
+			window.location.href= "/Home";
+		}).catch(error => {
+			console.log(error);
+			alert("ERROR Score Not Updated");
+			return error;
+		});
+	}
+
+	async postuser (){
+		var userpost= axios.post('http://localhost:8800/userPoints', {userId: 'lano'}).then((result) => {
+			alert("User score saved");
+			window.location.href= "/Home";
+		}).catch(error => {
+			console.log(error);
+			alert("ERROR User not saved");
+			return error;
+		});
+		this.setState({score: userpost.data[0].points});
+	}
+	
 
 	/*async function getanswers () {
 		let ans=axios.get('http://localhost:8800').then((response) => {
@@ -82,18 +110,26 @@ class Game extends React.Component {
 	//console.log("mandar pregunta", quiz);
 	//let answer = getanswers();
 	//console.log("mandar respuestas", answer);
-
+	
 	render() {
+
+		const handleRiskOptionClick = () =>{
+			this.setState({risk: this.state.risk})
+		};
 
 		const handleAnswerOptionClick = (isCorrect) => {
             if (isCorrect) {
-                this.setState({score: this.state.score + 1})
-            }
+                this.setState({score: this.state.score + this.state.risk})
+				this.setState({risk: this.state.risk = 1})
+            } else {
+				this.setState({score: this.state.score - this.state.risk})
+			}
             const nextQuestion = this.state.currentQuestion + 1;
             if (nextQuestion < this.state.questions.length) {
                 this.setState({currentQuestion: nextQuestion})
                 this.setState({questionText: this.state.questions[nextQuestion].question})
                 this.setState({answerOptions: this.state.questions[nextQuestion].answers})
+				
             } else {
                 this.setState({showScore: true})
             }
@@ -105,6 +141,15 @@ class Game extends React.Component {
 				<br />
 				<br />
 			<container class="d-flex justify-content-center"> 
+			<div class ='bet'>
+				<h4>Choose Your Bet</h4>
+				
+				<div className='answer-section'>
+				&nbsp;<button onClick={() => handleRiskOptionClick(this.state.risk = this.state.risk0)} >Risk 0 = 2 pts</button>&nbsp;
+						<button onClick={() => handleRiskOptionClick(this.state.risk = this.state.risk1)} >Risk 1 = 4 pts</button>&nbsp;
+						<button onClick={() => handleRiskOptionClick(this.state.risk = this.state.risk2)} >Risk 2 = 6 pts</button>&nbsp;
+				</div>
+			</div>
 			<div className='app'>
 				{this.state.showScore ? 
 					(<div className='score-section'>

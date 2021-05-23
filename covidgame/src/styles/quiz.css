@@ -29,6 +29,16 @@ body {
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     justify-content: space-evenly;
   }
+  .bet {
+    background-color: #498c9c;
+    width: 250px;
+    min-height: 200px;
+    height: 317px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgba(44, 44, 44, 0.75);
+    justify-content: space-evenly;
+  }
   
   .score-section {
     display: flex;
@@ -76,13 +86,13 @@ body {
     width: 100%;
     font-size: 16px;
     color: #ffffff;
-    background-color: #252d4a;
+    background-color:transparent;
     border-radius: 15px;
     display: flex;
     padding: 5px;
     justify-content: flex-start;
     align-items: center;
-    border: 5px solid #234668;
+    border: 5px solid #345b81;
     cursor: pointer;
   }
   
@@ -95,7 +105,7 @@ body {
   }
   
   button:hover {
-    background-color: #555e7d;
+    background-color: #7282948f;
   }
   
   button:focus {
